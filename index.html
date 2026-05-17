@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nidhi Barhate - Software Engineer</title>
-  <meta name="description"
-    content="Nidhi Barhate — Software Engineer with 11+ years of experience designing scalable distributed systems, microservices, and cloud-native architectures delivering high-performance backend solutions." />
-  <!-- Tailwind CSS CDN -->
+  <title>Nidhi Barhate | Senior Backend & Platform Engineer</title>
+  <meta
+    name="description"
+    content="Senior Backend & Platform Engineer with 11+ years of experience building secure enterprise systems, cloud-native backend platforms, distributed microservices, and scalable integrations using Java, Spring Boot, AWS, and Keycloak."
+  />
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            display: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
           },
           colors: {
             brand: {
@@ -31,776 +33,325 @@
               800: '#3730a3',
               900: '#312e81',
             },
-            surface: {
-              50: '#f8fafc',
-              100: '#f1f5f9',
-              200: '#e2e8f0',
-              800: '#1e293b',
-              850: '#172033',
-              900: '#0f172a',
-              950: '#0a101e',
-            }
           },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out forwards',
-            'slide-up': 'slideUp 0.5s ease-out forwards',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            slideUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            },
-          },
-        }
-      }
-    }
+        },
+      },
+    };
   </script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
+    body {
+      background: #0f172a;
+      overflow-x: hidden;
     }
 
-    ::-webkit-scrollbar-track {
-      background: transparent;
+    .glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: #94a3b8;
-      border-radius: 3px;
+    .card-hover {
+      transition: all 0.3s ease;
     }
 
-    .dark ::-webkit-scrollbar-thumb {
-      background: #475569;
-    }
-
-    /* Timeline connector (now handled by flex in grid column) */
-
-    /* Intersection Observer fade-in */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Pill badge hover */
-    .skill-pill {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .skill-pill:hover {
-      transform: scale(1.08);
-    }
-
-    /* Card lift */
-    .card-lift {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card-lift:hover {
+    .card-hover:hover {
       transform: translateY(-6px);
+      border-color: rgba(99,102,241,0.35);
     }
 
-    /* Gradient blob */
-    .gradient-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.15;
-      pointer-events: none;
+    .gradient-text {
+      background: linear-gradient(to right, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .dark .gradient-blob {
-      opacity: 0.08;
-    }
-
-    /* Profile image ring */
-    .profile-ring {
-      background: conic-gradient(from 0deg, #6366f1, #a78bfa, #818cf8, #6366f1);
-      padding: 3px;
+    .blob {
+      position: fixed;
       border-radius: 9999px;
+      filter: blur(90px);
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .timeline-line {
+      background: linear-gradient(to bottom, #6366f1, rgba(99,102,241,0.1));
     }
   </style>
 </head>
 
-<body
-  class="bg-surface-50 dark:bg-surface-950 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+<body class="text-slate-200 font-sans">
 
-  <!-- ============================================= -->
-  <!-- THEME TOGGLE (top-right, fixed)               -->
-  <!-- ============================================= -->
-  <button id="theme-toggle" aria-label="Toggle dark mode"
-    class="fixed top-5 right-5 z-50 w-12 h-12 rounded-2xl bg-white/80 dark:bg-surface-800/80 backdrop-blur-md shadow-lg dark:shadow-surface-900/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 border border-gray-200/60 dark:border-gray-700/40">
-    <!-- Sun icon (visible in dark mode) -->
-    <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-      <path fill-rule="evenodd"
-        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-        clip-rule="evenodd" />
-    </svg>
-    <!-- Moon icon (visible in light mode) -->
-    <svg class="w-5 h-5 block dark:hidden text-brand-600" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-    </svg>
-  </button>
+  <div class="blob bg-indigo-500 w-72 h-72 top-0 left-0"></div>
+  <div class="blob bg-purple-500 w-72 h-72 bottom-0 right-0"></div>
 
-  <!-- ============================================= -->
-  <!-- LAYOUT: Two-column (sidebar + main)           -->
-  <!-- ============================================= -->
-  <div class="min-h-screen flex flex-col lg:flex-row">
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-10">
 
-    <!-- =========================================== -->
-    <!-- SIDEBAR                                     -->
-    <!-- =========================================== -->
-    <aside
-      class="lg:w-[380px] xl:w-[400px] lg:min-h-screen lg:sticky lg:top-0 bg-white dark:bg-surface-900 border-b lg:border-b-0 lg:border-r border-gray-200/60 dark:border-gray-800/60 flex flex-col items-center px-8 py-12 lg:py-16 relative overflow-hidden">
+    <!-- HEADER -->
+    <header class="glass rounded-3xl p-8 lg:p-10 shadow-2xl shadow-black/20">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
-      <!-- Decorative blobs -->
-      <div class="gradient-blob w-60 h-60 bg-brand-400 -top-20 -left-20"></div>
-      <div class="gradient-blob w-48 h-48 bg-purple-400 bottom-10 -right-10"></div>
-
-      <!-- TODO: Replace profile image -->
-      <div class="profile-ring mb-6 animate-fade-in relative z-10">
-        <img src="https://api.dicebear.com/8.x/notionists/svg?seed=johndoe&backgroundColor=c7d2fe" alt="John Doe"
-          class="w-36 h-36 rounded-full object-cover bg-brand-100 dark:bg-brand-900/30" />
-      </div>
-
-      <!-- TODO: Replace name -->
-      <h1 class="font-display text-2xl lg:text-3xl font-800 text-gray-900 dark:text-white text-center relative z-10">
-        Nidhi Barhate
-      </h1>
-
-      <!-- TODO: Update title -->
-      <p class="mt-2 text-sm font-medium text-brand-600 dark:text-brand-400 tracking-wide uppercase relative z-10">
-        Software Engineer
-      </p>
-
-      <!-- Short description -->
-      <p class="mt-5 text-sm text-gray-500 dark:text-gray-400 text-center leading-relaxed max-w-[280px] relative z-10">
-        Building scalable systems. Focused on architecture, performance, and real-world impact.
-      </p>
-
-      <!-- Divider -->
-      <div class="w-12 h-0.5 bg-gradient-to-r from-brand-400 to-purple-400 rounded-full mt-8 mb-8 relative z-10"></div>
-
-      <!-- Contact Info -->
-      <div class="space-y-4 w-full max-w-[260px] relative z-10">
-        <!-- Email -->
-        <!-- TODO: Update email -->
-        <a href="mailto:nidhi.barhate12590@gmail.com"
-          class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group">
-          <span
-            class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center group-hover:bg-brand-100 dark:group-hover:bg-brand-900/40 transition-colors">
-            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </span>
-          nidhi.barhate12590@gmail.com
-        </a>
-
-        <!-- Location -->
-        <!-- TODO: Update location -->
-        <div class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-          <span class="w-9 h-9 rounded-xl bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center">
-            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </span>
-          Pune, India
-        </div>
-      </div>
-
-      <!-- Social Links -->
-      <!-- TODO: Update social links -->
-      <div class="flex gap-3 mt-8 relative z-10">
-        <a href="https://github.com/nidhi-barhate" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-          class="w-11 h-11 rounded-xl bg-gray-100 dark:bg-surface-800 flex items-center justify-center hover:bg-brand-100 dark:hover:bg-brand-900/30 hover:scale-110 transition-all duration-200 border border-transparent hover:border-brand-200 dark:hover:border-brand-800">
-          <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/nidhi-barhate/" target="_blank" rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="w-11 h-11 rounded-xl bg-gray-100 dark:bg-surface-800 flex items-center justify-center hover:bg-brand-100 dark:hover:bg-brand-900/30 hover:scale-110 transition-all duration-200 border border-transparent hover:border-brand-200 dark:hover:border-brand-800">
-          <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-        </a>
-        <!-- <a href="https://twitter.com/johndoe" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"
-          class="w-11 h-11 rounded-xl bg-gray-100 dark:bg-surface-800 flex items-center justify-center hover:bg-brand-100 dark:hover:bg-brand-900/30 hover:scale-110 transition-all duration-200 border border-transparent hover:border-brand-200 dark:hover:border-brand-800">
-          <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-        </a> -->
-      </div>
-
-      <!-- Resume button -->
-      <a href="Nidhi_Barhate_Resume.pdf" target="_blank"
-        class="mt-10 w-full max-w-[260px] relative z-10 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white text-sm font-semibold shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-        Download Résumé
-      </a>
-    </aside>
-
-    <!-- =========================================== -->
-    <!-- MAIN CONTENT                                -->
-    <!-- =========================================== -->
-    <main class="flex-1 px-6 md:px-12 lg:px-16 xl:px-20 py-12 lg:py-16 max-w-4xl">
-
-      <!-- ======================================= -->
-      <!-- ABOUT SECTION                           -->
-      <!-- ======================================= -->
-      <section id="about" class="reveal mb-16">
-        <h2 class="font-display text-xl font-700 text-gray-900 dark:text-white flex items-center gap-3 mb-6">
-          <span class="w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
-            <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </span>
-          About
-        </h2>
-        <!-- TODO: Update about description -->
-        <div
-          class="bg-white dark:bg-surface-900 rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-gray-800/60 shadow-sm">
-          <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-[15px]">
-            Software Engineer with <strong class="text-gray-800 dark:text-white">11+ years of experience</strong>
-            designing and scaling enterprise SaaS platforms serving millions of users. Specialized in solution
-            architecture, microservices, and secure backend systems using Java and Spring, with hands-on experience
-            modernizing legacy systems into cloud-native architectures on AWS consistently improving performance,
-            reliability, and delivery speed across multiple product teams.
+        <div class="max-w-3xl">
+          <p class="uppercase tracking-[0.25em] text-xs text-indigo-300 font-semibold mb-4">
+            Backend Engineering • Platform Systems • Enterprise Architecture
           </p>
-          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed text-[15px]">
-            Focused on building systems where architecture meets real-world impact driving technical decisions,
-            defining API and platform standards, and mentoring engineers to deliver scalable, maintainable solutions.
-            Actively exploring AI-assisted engineering using tools like GitHub Copilot to accelerate development
-            workflows and move toward intelligent, future ready system design.
+
+          <h1 class="font-display text-4xl lg:text-6xl font-bold leading-tight text-white">
+            Nidhi <span class="gradient-text">Barhate</span>
+          </h1>
+
+          <h2 class="mt-5 text-lg lg:text-xl text-slate-300 font-medium leading-relaxed">
+            Senior Backend & Platform Engineer | Enterprise Integrations | Security & Identity Systems | Java Microservices
+          </h2>
+
+          <p class="mt-6 text-slate-400 leading-8 text-[15px] lg:text-base max-w-3xl">
+            Backend engineering professional with 11+ years of experience designing secure enterprise systems, scalable backend architectures, cloud-native applications, and distributed microservices using Java, Spring Boot, AWS, and modern integration technologies. Experienced in authentication platforms, enterprise integrations, API security, cloud modernization, and high-performance backend engineering.
           </p>
         </div>
-      </section>
 
-      <!-- ======================================= -->
-      <!-- SKILLS SECTION                          -->
-      <!-- ======================================= -->
-      <!-- TODO: Update skills -->
-      <section id="skills" class="reveal mb-16">
-        <h2 class="font-display text-xl font-700 text-gray-900 dark:text-white flex items-center gap-3 mb-6">
-          <span class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </span>
-          Skills
-        </h2>
+        <div class="glass rounded-3xl p-6 min-w-[320px]">
+          <div class="space-y-5 text-sm">
 
-        <div
-          class="bg-white dark:bg-surface-900 rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-gray-800/60 shadow-sm space-y-6">
-          <!-- Languages -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Languages
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/40 hover:shadow-md hover:shadow-blue-200/40 dark:hover:shadow-blue-900/20 cursor-default">Java</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 border border-amber-100 dark:border-amber-800/40 hover:shadow-md hover:shadow-amber-200/40 dark:hover:shadow-amber-900/20 cursor-default">JavaScript</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800/40 hover:shadow-md hover:shadow-cyan-200/40 dark:hover:shadow-cyan-900/20 cursor-default">SQL</span>
+            <div>
+              <p class="text-slate-500 uppercase tracking-wider text-xs mb-1">Email</p>
+              <a href="mailto:nidhi.barhate12590@gmail.com" class="text-slate-200 hover:text-indigo-300 transition">
+                nidhi.barhate12590@gmail.com
+              </a>
             </div>
-          </div>
-
-          <!-- Backend & Frameworks -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Backend &
-              Frameworks</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border border-green-100 dark:border-green-800/40 hover:shadow-md hover:shadow-green-200/40 dark:hover:shadow-green-900/20 cursor-default">Spring
-                Boot</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/40 hover:shadow-md hover:shadow-emerald-200/40 dark:hover:shadow-emerald-900/20 cursor-default">Spring
-                MVC</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-lime-50 dark:bg-lime-900/20 text-lime-700 dark:text-lime-300 border border-lime-100 dark:border-lime-800/40 hover:shadow-md hover:shadow-lime-200/40 dark:hover:shadow-lime-900/20 cursor-default">Hibernate</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-100 dark:border-teal-800/40 hover:shadow-md hover:shadow-teal-200/40 dark:hover:shadow-teal-900/20 cursor-default">JPA</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 border border-violet-100 dark:border-violet-800/40 hover:shadow-md hover:shadow-violet-200/40 dark:hover:shadow-violet-900/20 cursor-default">REST
-                APIs</span>
+            <div>
+              <p class="text-slate-500 uppercase tracking-wider text-xs mb-1">LinkedIn</p>
+              <a href="https://linkedin.com/in/nidhi-barhate" target="_blank" class="text-indigo-300 hover:text-indigo-200 transition">
+                linkedin.com/in/nidhi-barhate
+              </a>
             </div>
-          </div>
 
-          <!-- Cloud & Infrastructure -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Cloud &
-              Infrastructure</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-100 dark:border-orange-800/40 hover:shadow-md hover:shadow-orange-200/40 dark:hover:shadow-orange-900/20 cursor-default">AWS</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 border border-yellow-100 dark:border-yellow-800/40 hover:shadow-md hover:shadow-yellow-200/40 dark:hover:shadow-yellow-900/20 cursor-default">DynamoDB</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-100 dark:border-sky-800/40 hover:shadow-md hover:shadow-sky-200/40 dark:hover:shadow-sky-900/20 cursor-default">S3</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800/40 hover:shadow-md hover:shadow-indigo-200/40 dark:hover:shadow-indigo-900/20 cursor-default">Lambda</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/40 hover:shadow-md hover:shadow-blue-200/40 dark:hover:shadow-blue-900/20 cursor-default">Secrets
-                Manager</span>
-            </div>
-          </div>
-
-          <!-- Architecture -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
-              Architecture</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-800/40 hover:shadow-md hover:shadow-purple-200/40 dark:hover:shadow-purple-900/20 cursor-default">Microservices</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800/40 hover:shadow-md hover:shadow-fuchsia-200/40 dark:hover:shadow-fuchsia-900/20 cursor-default">System
-                Design</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-300 border border-rose-100 dark:border-rose-800/40 hover:shadow-md hover:shadow-rose-200/40 dark:hover:shadow-rose-900/20 cursor-default">API
-                Design</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-pink-50 dark:bg-pink-900/20 text-pink-700 dark:text-pink-300 border border-pink-100 dark:border-pink-800/40 hover:shadow-md hover:shadow-pink-200/40 dark:hover:shadow-pink-900/20 cursor-default">Distributed
-                Systems</span>
-            </div>
-          </div>
-
-          <!-- Data & Tools -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Data &
-              Tools</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-100 dark:border-red-800/40 hover:shadow-md hover:shadow-red-200/40 dark:hover:shadow-red-900/20 cursor-default">PostgreSQL</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border border-orange-100 dark:border-orange-800/40 hover:shadow-md hover:shadow-orange-200/40 dark:hover:shadow-orange-900/20 cursor-default">Redis</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-300 border border-sky-100 dark:border-sky-800/40 hover:shadow-md hover:shadow-sky-200/40 dark:hover:shadow-sky-900/20 cursor-default">Docker</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800/40 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700/40 hover:shadow-md hover:shadow-gray-200/40 dark:hover:shadow-gray-800/20 cursor-default">Git</span>
-            </div>
-          </div>
-
-          <!-- Leadership & Practices -->
-          <div>
-            <h3 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Leadership
-              & Practices</h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300 border border-violet-100 dark:border-violet-800/40 hover:shadow-md hover:shadow-violet-200/40 dark:hover:shadow-violet-900/20 cursor-default">Tech
-                Leadership</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/40 hover:shadow-md hover:shadow-blue-200/40 dark:hover:shadow-blue-900/20 cursor-default">Mentoring</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 border border-amber-100 dark:border-amber-800/40 hover:shadow-md hover:shadow-amber-200/40 dark:hover:shadow-amber-900/20 cursor-default">Code
-                Reviews</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 border border-teal-100 dark:border-teal-800/40 hover:shadow-md hover:shadow-teal-200/40 dark:hover:shadow-teal-900/20 cursor-default">AI
-                Engineering</span>
-              <span
-                class="skill-pill px-4 py-1.5 rounded-full text-sm font-medium bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800/40 hover:shadow-md hover:shadow-cyan-200/40 dark:hover:shadow-cyan-900/20 cursor-default">Legacy
-                Modernization</span>
+            <div class="pt-3">
+              <a
+                href="Nidhi_Barhate_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 transition px-5 py-3 rounded-xl font-semibold shadow-lg shadow-indigo-900/40"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <!-- ======================================= -->
-      <!-- EXPERIENCE SECTION                      -->
-      <!-- ======================================= -->
-      <!-- TODO: Update experience -->
-      <section id="experience" class="reveal mb-16">
-        <h2 class="font-display text-xl font-700 text-gray-900 dark:text-white flex items-center gap-3 mb-6">
-          <span class="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
-            <svg class="w-4 h-4 text-violet-600 dark:text-violet-400" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </span>
-          Experience
-        </h2>
+    <!-- CORE EXPERTISE -->
+    <section class="mt-10 glass rounded-3xl p-8 lg:p-10">
+      <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+        <h3 class="font-display text-2xl font-bold text-white">Core Expertise</h3>
+        <p class="text-sm text-slate-500">Engineering strengths built across enterprise SaaS ecosystems</p>
+      </div>
 
-        <!-- Timeline container -->
-        <div class="relative">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-          <!-- ───── Experience 1: Accenture ───── -->
-          <div class="grid grid-cols-[24px_1fr] md:grid-cols-[24px_1fr_180px] gap-x-5 pb-10 relative">
-
-            <!-- COL 1: Timeline dot + line -->
-            <div class="relative flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-brand-500 border-[3px] border-white dark:border-surface-950 shadow-md shadow-brand-500/30 z-10 shrink-0 mt-1.5"></div>
-              <div class="w-0.5 flex-1 bg-gradient-to-b from-brand-500 to-brand-300 mt-2 rounded-full"></div>
-            </div>
-
-            <!-- COL 2: Content card -->
-            <div class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift">
-              <div class="mb-4">
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug">Senior Software Engineer</h3>
-                    <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-0.5">Accenture</p>
-                  </div>
-                  <span class="md:hidden text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1 rounded-lg whitespace-nowrap self-start">Jun 2024 — Present</span>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Designed and delivered an enterprise Authentication & Authorization framework using Keycloak and JWT, enabling secure, reusable access control across multiple applications.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Architected scalable microservices solutions and modernized legacy systems, improving system performance and reducing deployment cycle time.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Integrated AWS services (DynamoDB, S3, Lambda, Secrets Manager) and implemented WebSocket-based real-time features for resilient application functionality.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Led API contract design, deep code reviews, and built AI-assisted PoCs using GitHub Copilot to accelerate innovation and delivery velocity.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Mentored engineers on architecture best practices and drove cross-team coordination to ensure on-time, high-quality delivery.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- COL 3: Date + Tech stack -->
-            <div class="hidden md:flex flex-col items-end gap-3 pt-1.5">
-              <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1.5 rounded-lg whitespace-nowrap">Jun 2024 — Present</span>
-              <div class="flex flex-wrap justify-end gap-1.5 mt-1">
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Spring Boot</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Keycloak</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">AWS</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">DynamoDB</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Terraform</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ───── Experience 2: eProcurement Technologies ───── -->
-          <div class="grid grid-cols-[24px_1fr] md:grid-cols-[24px_1fr_180px] gap-x-5 pb-10 relative">
-
-            <!-- COL 1: Timeline dot + line -->
-            <div class="relative flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-brand-400 border-[3px] border-white dark:border-surface-950 shadow-md shadow-brand-400/30 z-10 shrink-0 mt-1.5"></div>
-              <div class="w-0.5 flex-1 bg-gradient-to-b from-brand-400 to-brand-200 mt-2 rounded-full"></div>
-            </div>
-
-            <!-- COL 2: Content card -->
-            <div class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift">
-              <div class="mb-4">
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug">Software Engineer → Technical Lead</h3>
-                    <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-0.5">eProcurement Technologies</p>
-                  </div>
-                  <span class="md:hidden text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1 rounded-lg whitespace-nowrap self-start">Jan 2022 — May 2024</span>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Promoted to Technical Lead based on technical impact — led a development team to meet SLA commitments while maintaining high delivery quality.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Designed backend modules and database schemas for enterprise applications, ensuring performance, accuracy, and long-term maintainability.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Drove code quality through peer reviews and unit testing, reducing production defects and improving release stability.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Mentored junior and mid-level developers across the full SDLC, strengthening team competency through knowledge-sharing initiatives.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- COL 3: Date + Tech stack -->
-            <div class="hidden md:flex flex-col items-end gap-3 pt-1.5">
-              <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1.5 rounded-lg whitespace-nowrap">Jan 2022 — May 2024</span>
-              <div class="flex flex-wrap justify-end gap-1.5 mt-1">
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Java</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Spring Boot</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Hibernate</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">MS SQL</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">JSP</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ───── Experience 3: Omnirio ───── -->
-          <div class="grid grid-cols-[24px_1fr] md:grid-cols-[24px_1fr_180px] gap-x-5 relative">
-
-            <!-- COL 1: Timeline dot (no line for last item) -->
-            <div class="relative flex flex-col items-center">
-              <div class="w-4 h-4 rounded-full bg-brand-200 dark:bg-brand-700 border-[3px] border-white dark:border-surface-950 shadow-md shadow-brand-200/30 z-10 shrink-0 mt-1.5"></div>
-            </div>
-
-            <!-- COL 2: Content card -->
-            <div class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift">
-              <div class="mb-4">
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 class="text-base font-bold text-gray-900 dark:text-white leading-snug">Software Engineer</h3>
-                    <p class="text-sm font-semibold text-brand-600 dark:text-brand-400 mt-0.5">Omnirio</p>
-                  </div>
-                  <span class="md:hidden text-xs font-medium text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1 rounded-lg whitespace-nowrap self-start">Mar 2019 — Jan 2022</span>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Built scalable backend modules for Order, Inventory, POS, Notification, and Marketplace integrations within a cross-functional product engineering team.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Implemented RESTful microservices and event-driven messaging with RabbitMQ (AMQP), enabling reliable asynchronous communication across services.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Configured workflow orchestration using Spring State Machine for order and device token flows, reducing manual processing overhead.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-brand-400 shrink-0"></span>
-                  <span>Optimized SQL queries and JPA criteria builders, improving query performance and database maintainability across production workloads.</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- COL 3: Date + Tech stack -->
-            <div class="hidden md:flex flex-col items-end gap-3 pt-1.5">
-              <span class="text-xs font-semibold text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-surface-800 px-3 py-1.5 rounded-lg whitespace-nowrap">Mar 2019 — Jan 2022</span>
-              <div class="flex flex-wrap justify-end gap-1.5 mt-1">
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">Spring Boot</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">RabbitMQ</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">JPA</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">MySQL</span>
-                <span class="px-2 py-0.5 rounded-md text-[11px] font-medium bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-300 border border-brand-100 dark:border-brand-800/30">REST</span>
-              </div>
-            </div>
-          </div>
-
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">Backend Engineering</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            Java, Spring Boot, REST APIs, distributed systems, scalable backend services, event-driven systems, microservices architecture, and enterprise backend modernization.
+          </p>
         </div>
-      </section>
 
-      <!-- ======================================= -->
-      <!-- PROJECTS SECTION                        -->
-      <!-- ======================================= -->
-      <!-- TODO: Update projects -->
-      <section id="projects" class="reveal mb-16">
-        <h2 class="font-display text-xl font-700 text-gray-900 dark:text-white flex items-center gap-3 mb-6">
-          <span class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-          </span>
-          Projects
-        </h2>
-
-        <div class="grid gap-5 md:grid-cols-2">
-
-          <!-- Project 1 -->
-          <div
-            class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift group">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-purple-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </span>
-              <h3
-                class="text-base font-bold text-gray-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-                Distributed Task Orchestrator</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-              A fault-tolerant, horizontally scalable task orchestration engine supporting DAG-based workflows,
-              automatic retries with exponential backoff, and real-time execution monitoring. Handles 10K+ concurrent
-              task executions with sub-second scheduling latency.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Java</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Spring
-                Boot</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Kafka</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Redis</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">K8s</span>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div
-            class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift group">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </span>
-              <h3
-                class="text-base font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                AI-Powered Code Review Bot</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-              An intelligent GitHub bot that uses LLMs to provide contextual code review feedback, detect anti-patterns,
-              suggest refactors, and auto-generate PR summaries. Integrated with Slack for real-time notifications and
-              deployed across 40+ internal repositories.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Python</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">FastAPI</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">OpenAI</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Docker</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">AWS</span>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div
-            class="bg-white dark:bg-surface-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800/60 shadow-sm card-lift group md:col-span-2">
-            <div class="flex items-center gap-3 mb-4">
-              <span
-                class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </span>
-              <h3
-                class="text-base font-bold text-gray-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
-                Real-Time Geo Analytics Platform</h3>
-            </div>
-            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
-              A geo-spatial analytics platform processing 1M+ location events per minute for fleet tracking and delivery
-              optimization. Features real-time map visualization, geofencing alerts, and ML-driven ETA predictions with
-              94% accuracy. Reduced average delivery times by 18% across pilot markets.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Node.js</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">TypeScript</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Kafka</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">PostgreSQL</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Mapbox</span>
-              <span
-                class="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-surface-800 text-gray-600 dark:text-gray-400">Terraform</span>
-            </div>
-          </div>
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">Security & Identity</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            Keycloak, OAuth2, SAML, JWT, enterprise authentication, authorization workflows, API security, access control systems.
+          </p>
         </div>
-      </section>
 
-      <!-- ======================================= -->
-      <!-- FOOTER                                  -->
-      <!-- ======================================= -->
-      <footer class="pt-8 border-t border-gray-200/60 dark:border-gray-800/40">
-        <p class="text-xs text-gray-400 dark:text-gray-600 text-center">
-          &copy; 2025 John Doe. Crafted with care.
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">Cloud & Infrastructure</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            AWS integrations, DynamoDB, S3, Lambda, Kubernetes exposure, Terraform concepts, scalable cloud-native systems.
+          </p>
+        </div>
+
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">Enterprise Integrations</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            Jira Cloud, Azure DevOps, ServiceNow integrations, third-party APIs, marketplace integrations, carrier integrations.
+          </p>
+        </div>
+
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">Engineering Leadership</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            Architecture discussions, mentoring engineers, code reviews, technical decision-making, backend modernization initiatives.
+          </p>
+        </div>
+
+        <div class="card-hover rounded-2xl bg-slate-900/60 border border-slate-800 p-5">
+          <h4 class="font-semibold text-white mb-3">AI-Assisted Engineering</h4>
+          <p class="text-sm text-slate-400 leading-7">
+            AI-assisted development workflows, GitHub Copilot experimentation, intelligent engineering productivity improvements.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- TECHNOLOGY STACK -->
+    <section class="mt-10 glass rounded-3xl p-8 lg:p-10">
+      <div class="mb-8">
+        <h3 class="font-display text-2xl font-bold text-white">Technology Stack</h3>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Java</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Spring Boot</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Microservices</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">REST APIs</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Keycloak</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">OAuth2</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">SAML</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">JWT</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">AWS</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Kubernetes</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">RabbitMQ</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Terraform</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">SQL</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Distributed Systems</span>
+        <span class="px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm">Enterprise Integrations</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="mt-10 glass rounded-3xl p-8 lg:p-10">
+      <div class="mb-10">
+        <h3 class="font-display text-2xl font-bold text-white">Professional Experience</h3>
+        <p class="mt-2 text-slate-500 text-sm">
+          Enterprise backend engineering, distributed systems, security platforms, and cloud-native application development.
         </p>
-      </footer>
+      </div>
 
-    </main>
+      <div class="space-y-10">
+
+        <!-- Accenture -->
+        <div class="grid lg:grid-cols-[120px_1fr] gap-6">
+          <div>
+            <p class="text-indigo-300 font-semibold text-sm">2024 — Present</p>
+          </div>
+
+          <div class="relative pl-8 border-l border-slate-800">
+            <div class="absolute left-[-8px] top-2 w-4 h-4 rounded-full bg-indigo-500"></div>
+
+            <h4 class="text-xl font-bold text-white">Accenture</h4>
+            <p class="text-indigo-300 mt-1 font-medium">Custom Software Engineering Senior Analyst</p>
+
+            <ul class="mt-5 space-y-4 text-slate-400 leading-7 text-[15px]">
+              <li>• Designed and implemented enterprise-grade authentication and authorization platform using Keycloak and JWT-based access management.</li>
+              <li>• Led backend engineering initiatives focused on scalable microservices architecture, secure API development, and cloud integration.</li>
+              <li>• Integrated AWS services including DynamoDB, S3, Lambda, and Secrets Manager for resilient enterprise application workflows.</li>
+              <li>• Contributed to modernization of legacy applications by refactoring monolithic services into modular backend components.</li>
+              <li>• Implemented WebSocket-based communication capabilities for real-time enterprise application features.</li>
+              <li>• Collaborated with infrastructure teams on Terraform and cloud deployment automation concepts.</li>
+              <li>• Mentored developers through architecture reviews, debugging sessions, and engineering best practices.</li>
+              <li>• Built AI-assisted engineering proof-of-concepts to improve development productivity and delivery efficiency.</li>
+              <li>• Proactively supported delivery timelines through technical leadership, issue resolution, and cross-team coordination.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EPTL -->
+        <div class="grid lg:grid-cols-[120px_1fr] gap-6">
+          <div>
+            <p class="text-indigo-300 font-semibold text-sm">2022 — 2024</p>
+          </div>
+
+          <div class="relative pl-8 border-l border-slate-800">
+            <div class="absolute left-[-8px] top-2 w-4 h-4 rounded-full bg-indigo-400"></div>
+
+            <h4 class="text-xl font-bold text-white">eProcurement Technologies Ltd</h4>
+            <p class="text-indigo-300 mt-1 font-medium">Technical Lead / Software Developer</p>
+
+            <ul class="mt-5 space-y-4 text-slate-400 leading-7 text-[15px]">
+            <li>• Led backend development and technical delivery for enterprise procurement and workflow management platforms.</li>
+            <li>• Collaborated with business analysts and stakeholders to translate complex requirements into scalable backend solutions.</li>
+            <li>• Designed backend modules, service integrations, and database schemas with focus on maintainability and performance.</li>
+            <li>• Provided technical leadership during production issue resolution, code reviews, and mentoring activities.</li>
+            <li>• Worked with RabbitMQ and ActiveMQ to support asynchronous communication and event-driven workflows.</li>
+            <li>• Promoted to Technical Lead based on engineering ownership, technical contribution, and delivery excellence.</li></ul>
+          </div>
+        </div>
+
+        <!-- Omnirio -->
+        <div class="grid lg:grid-cols-[120px_1fr] gap-6">
+          <div>
+            <p class="text-indigo-300 font-semibold text-sm">2019 — 2022</p>
+          </div>
+
+          <div class="relative pl-8 border-l border-slate-800">
+            <div class="absolute left-[-8px] top-2 w-4 h-4 rounded-full bg-indigo-300"></div>
+
+            <h4 class="text-xl font-bold text-white">Omnirio</h4>
+            <p class="text-indigo-300 mt-1 font-medium">Software Developer</p>
+
+            <ul class="mt-5 space-y-4 text-slate-400 leading-7 text-[15px]">
+              <li>• Developed scalable backend services and REST APIs for omnichannel retail and e-commerce SaaS platform.</li>
+              <li>• Built modules supporting Order Management, Inventory, POS integrations, Notifications, Marketplace integrations, and Carrier services.</li>
+              <li>• Implemented asynchronous messaging solutions using RabbitMQ and AMQP-based communication.</li>
+              <li>• Optimized backend workflows, database queries, and service interactions for scalability and reliability.</li>
+              <li>• Developed chatbot integrations using Node.js and contributed to NLP experimentation using RASA.</li>
+            </ul>
+          </div>
+      </div>
+      <!-- MSP IT -->
+        <div class="grid lg:grid-cols-[120px_1fr] gap-6">
+          <div>
+            <p class="text-indigo-300 font-semibold text-sm">2015 — 2018</p>
+          </div>
+
+          <div class="relative pl-8 border-l border-slate-800">
+            <div class="absolute left-[-8px] top-2 w-4 h-4 rounded-full bg-indigo-300"></div>
+
+            <h4 class="text-xl font-bold text-white">MSP IT</h4>
+            <p class="text-indigo-300 mt-1 font-medium">Software Developer</p>
+
+            <ul class="mt-5 space-y-4 text-slate-400 leading-7 text-[15px]">
+              <li>• Developed SaaS-based applications and backend modules for influencer marketing and CRM platforms.</li>
+              <li>• Integrated payment gateways and multiple third-party APIs including social media platform integrations.</li>
+              <li>• Built reusable backend automation tools to improve operational workflows and platform administration.</li>
+            </ul>
+          </div>
+        </div>
+      <!-- Bugle Tech -->
+        <div class="grid lg:grid-cols-[120px_1fr] gap-6">
+          <div>
+            <p class="text-indigo-300 font-semibold text-sm">2013 — 2015</p>
+          </div>
+          <div class="relative pl-8 border-l border-slate-800">
+            <div class="absolute left-[-8px] top-2 w-4 h-4 rounded-full bg-indigo-300"></div>
+
+            <h4 class="text-xl font-bold text-white">Bugle Tech</h4>
+            <p class="text-indigo-300 mt-1 font-medium">Junior PHP Developer</p>
+
+            <ul class="mt-5 space-y-4 text-slate-400 leading-7 text-[15px]">
+              <li>• Developed backend functionalities and JSON-based integrations for SaaS publishing applications.</li>
+              <li>• Worked on AJAX-driven workflows and frontend-backend interaction handling.</li>
+            </ul>
+          </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-10 text-center pb-8">
+      <p class="text-slate-600 text-sm">
+        Built with modern web technologies and engineered for clean professional presentation.
+      </p>
+    </footer>
+
   </div>
 
-  <!-- ============================================= -->
-  <!-- JAVASCRIPT: Theme toggle + Scroll reveal      -->
-  <!-- ============================================= -->
-  <script>
-    // ---- Theme Toggle ----
-    const toggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-
-    // Load saved theme or default to light
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-
-    toggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-    });
-
-    // ---- Intersection Observer for scroll reveal ----
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    revealElements.forEach((el) => observer.observe(el));
-  </script>
-
 </body>
-
 </html>
